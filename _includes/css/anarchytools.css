@@ -1,18 +1,17 @@
 body {
-    padding: 50px 0 200px 0;
+  padding: 50px 0 200px 0;
+}
+
+h1, h2, h3 {
+  font-family: "Bitter", serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Bitter", serif;
-    font-weight: 400;
+  font-weight: 400;
 }
 
 nav#links {
-    margin-top: 149px;
-}
-
-.constant {
- color: #25536D;
+  margin-top: 109px;
 }
 
 a, a:visited {
@@ -25,49 +24,25 @@ a:hover, a:focus {
  color: black;
 }
 
+
 p {
-    text-align: justify;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
 }
 
 p#pitch {
-    text-align: left;
+  text-align: left;
 }
 
 pre, tt, kbd, code {
-    font-family: 'Inconsolata', 'Consolas', mono;
-}
-
-#sample-project {
-    font-size: 16px;
+  font-family: 'Inconsolata', 'Consolas', mono;
 }
 
 hr {
-    margin: 35px 0;
+  margin: 35px 0;
 }
 
-h3 {
-    margin: 21px 0;
-}
-
-#footer p {
-    text-align: center;
-}
-
-/* Media Queries */
-
-/* Larger than mobile */
-@media (min-width: 400px) {}
-
-/* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
-
-/* Larger than tablet */
-@media (min-width: 750px) {}
-
-/* Larger than desktop */
-@media (min-width: 1000px) {}
-
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {}
+.remove-bottom { margin-bottom: 0 !important; }
+.half-bottom { margin-bottom: 10px !important; }
+.add-bottom { margin-bottom: 20px !important; }
