@@ -1,9 +1,7 @@
-# Site settings
-title: "Jekyll + Skeleton CSS"
-description: "A basic Jekyll site incorporating the Skeleton responsive CSS boilerplate."
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-author: "Site Author"
+title: "Anarchy Tools"
+description: "The homepage for Anarchy Tools."
+baseurl: ""
+url: "http://anarchytools.github.io"
+author: "David Owens II"
 
-# Build settings
 markdown: kramdown

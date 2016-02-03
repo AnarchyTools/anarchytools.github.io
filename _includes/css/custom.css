@@ -1,17 +1,58 @@
-/* Your custom CSS & overrides go here... */
+body {
+    padding: 50px 0 200px 0;
+}
 
-/* Example for page columns demo */
-.example .column, .example .columns {
-  background: #EEE;
-  text-align: center;
-  border-radius: 4px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  height: 30px;
-  line-height: 30px;
-  margin-bottom: .75rem;
-  font-weight: 600;
-  letter-spacing: .1rem;
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Bitter", serif;
+    font-weight: 400;
+}
+
+nav#links {
+    margin-top: 149px;
+}
+
+.constant {
+ color: #25536D;
+}
+
+a, a:visited {
+  color: #25536D;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+a:hover, a:focus {
+ color: black;
+}
+
+p {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+}
+
+p#pitch {
+    text-align: left;
+}
+
+pre, tt, kbd, code {
+    font-family: 'Inconsolata', 'Consolas', mono;
+}
+
+#sample-project {
+    font-size: 16px;
+}
+
+hr {
+    margin: 35px 0;
+}
+
+h3 {
+    margin: 21px 0;
+}
+
+#footer p {
+    text-align: center;
 }
 
 /* Media Queries */
