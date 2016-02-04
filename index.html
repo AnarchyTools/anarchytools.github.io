@@ -2,7 +2,7 @@
 layout: landing
 ---
 
-<div class="row">
+<section class="header">
     <div class="one-third column">
         <img src="images/logo_350@2x.png" width="273" height="350" title="Anarchy Tools Logo" id="logo">
     </div>
@@ -12,8 +12,67 @@ layout: landing
         <nav id="links" class="offset-by-three columns">
             <a href="#install">install</a> |
             <a href="#docs">docs</a> |
-            <a href="#community">community</a> |
             <a href="https://github.com/anarchytools">source</a>
         </nav>
     </div>
-</div>
+</section>
+
+<hr>
+
+<section class="info">
+    <div class="five columns">
+        <p id="pitch">The Anarchy Tools toolset provides a straight forward way to build your Swift tools
+            and libraries. It takes a non-nonsense approach to getting things done. Best of all, it's built
+            right on top of the <a href="https://github.com/apple/swift-llbuild">swift-llbuild</a> foundation.</p>
+    </div>
+    <div class="seven columns">
+        <pre>
+(package
+  :name "simple-sample"
+
+  :tasks { :build { :name "sample"
+                    :tool "atllbuild"
+                    :sources ["src/**.swift"]
+                    :output-type "executable" }})</pre>
+
+    </div>
+</section>
+    
+<hr>
+
+<section class="info">
+    <div class="three columns offset-by-one"><h3>Install</h3></div>
+    <div class="eight columns">
+        <a name="install"></a>
+        <ol>
+            <li>Download the latest release of <a href="https://github.com/AnarchyTools/atbuild/releases">atbuild</a>.</li>
+            <li>Place it on your <tt>$PATH</tt> where your shell can find it (eg. <tt>~/bin</tt>)</li>
+            <li>You should now be able to run <kbd>atbuild</kdb>.</li>
+
+    </div>
+</section>
+
+<hr>
+
+<secion class="info">
+    <div class="eight columns">
+        <a name="docs"></a>
+        <p>The documentation is a little sparse right now, but do not fear, it is coming! You can
+            always run <kbd>atbuild --help</kbd> to see the list of current tasks that can be run
+            from the working directory.
+        </p>
+
+        <p>More:
+        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/atllbuild.md">atllbuild tool</a> |
+        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/nop.md">nop tool</a> |
+        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/shell.md">shell tool</a> |
+        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/xctest.md">xctest tool</a> |
+        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/tasks.md">tasks</a> |
+        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/import.md">importing packages</a> |
+        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/overlays.md">overlays</a>
+        </p>
+    </div>
+    
+    <div class="four columns"><h3>Documentation</h3></div>
+
+</secion>

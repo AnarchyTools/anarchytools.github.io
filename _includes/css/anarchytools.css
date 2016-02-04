@@ -46,3 +46,25 @@ hr {
 .remove-bottom { margin-bottom: 0 !important; }
 .half-bottom { margin-bottom: 10px !important; }
 .add-bottom { margin-bottom: 20px !important; }
+
+.tools {
+    margin-top: 1.5rem;
+}
+
+.tools img {
+    display: block;
+    text-align: center;
+    margin: 2.5rem auto 1.5rem;
+    width: 130px;
+    height: 70px;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.info pre, .info code {
+    margin-top: 0px;
+}
