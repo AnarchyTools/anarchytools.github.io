@@ -52,11 +52,11 @@ hr {
 }
 
 .tools img {
-    display: block;
-    text-align: center;
-    margin: 2.5rem auto 1.5rem;
-    width: 130px;
-    height: 70px;
+  display: block;
+  text-align: center;
+  margin: 2.5rem auto 1.5rem;
+  width: 130px;
+  height: 70px;
 }
 
 section:after {
@@ -66,5 +66,13 @@ section:after {
 }
 
 .info pre, .info code {
-    margin-top: 0px;
+  margin-top: 0px;
+}
+
+.footer {
+  margin-top: 60px;
+}
+
+.footer p {
+  text-align: center;
 }
