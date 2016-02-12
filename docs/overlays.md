@@ -8,7 +8,7 @@ tags: docs
 You can activate settings, called "overlays", by passing them on the command line.
 
 ```bash
-$ atbuild --overlay bar
+$ atbuild --use-overlay bar
 ```
 
 This activates the settings for the overlay across all targets:
@@ -18,13 +18,13 @@ This activates the settings for the overlay across all targets:
   :name "Foo"
   :overlays {
     :bar {
-        :compileOptions ["-D" "FOO"]
+        :compile-options ["-D" "FOO"]
     }
   }
 )
 ```
 
-You can add as many overlays as you like: `atbuild --overlay bar --overlay baz`.  They are processed in order.
+You can add as many overlays as you like: `atbuild --use-overlay bar --use-overlay baz`.  They are processed in order.
 
 # Task-scoped overlays
 
@@ -35,17 +35,17 @@ You can also only apply an overlay to a particular task.  To do this:
   :name "Foo"
   :tasks {
     :foo {
-        :overlays {
-            :bar {
-                :compileOptions ["-D" "BAZ"]
-            }
+      :overlays {
+        :bar {
+          :compile-options ["-D" "BAZ"]
         }
+      }
     }
   }
 )
 ```
 
-Now when we build with `--overlay bar`, this will add `-D BAZ` to compile options for the `foo` task, but not for other tasks in our file.
+Now when we build with `--use-overlay bar`, this will add `-D BAZ` to compile options for the `foo` task, but not for other tasks in our file.
 
 # 'Always' overlay
 
@@ -56,15 +56,15 @@ We can use an overlay even when it was not specified on the CLI.  This way we ca
   :name "Foo"
   :overlays {
     :optimized {
-        :compileOptions ["-Owholemodule"] ;;whole module optimization
+      :compile-options ["-Owholemodule"] ;;whole module optimization
     }
   }
   :tasks {
     :foo {
-        :overlay ["optimized"] ;;apply to this task
+      :use-overlays ["optimized"] ;;apply to this task
     }
     :baz {
-        :overlay ["optimized"] ;;apply to this task too
+      :use-overlays ["optimized"] ;;apply to this task too
     }
   }
 )
@@ -79,7 +79,7 @@ Overlays can be [imported](import.md).  This allows libraries to export required
    :name "Library"
    :overlays {
     :compile-linux {
-        :compileOptions ["-Xcc" "-fblocks"] ;; work around https://bugs.swift.org/browse/SR-397
+      :compile-options ["-Xcc" "-fblocks"] ;; work around https://bugs.swift.org/browse/SR-397
     }
    }
 )
@@ -91,8 +91,20 @@ Overlays can be [imported](import.md).  This allows libraries to export required
    :import ["Library.atpkg"]
    :tasks {
     :foo {
-        :overlay ["Library.compile-linux"] ;;apply to this task
+      :use-overlays ["Library.compile-linux"] ;;apply to this task
     }
 )
 ```
 
+# Required overlays
+ 
+You can specify that an overlay must be applied to a task.
+
+```clojure
+(package
+   :tasks {
+    :foo {
+        :required-overlays [["osx" "linux"] ["debug" "release"]] ;;at least one of osx/linux and one of debug/release must be applied
+    }
+)
+```

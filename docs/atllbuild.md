@@ -19,39 +19,61 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     :name "build"
 
     ;;Type of build.  "library" and "executable" are supported.
-    :outputType "library" 
+    :output-type "library" 
 
     ;;walk the src directory and recursively find all swift files
-    :source ["src/**.swift"]
+    :sources ["src/**.swift"]
+
+    ;;if true, we publish the product to the bin/ directory.
+    ;;We also publish the swiftmodule and the modulemap, if applicable.
+    ;;The modulemap is named "[target].modulemap" for static library targets.
+    :publish-product false
 
     ;;If true, we don't build, we only output llbuild.yaml  False is the default value.
-    :bootstrapOnly: false
+    :bootstrap-only: false
     ;;Path to emit llbuild.yaml
     :llbuildyaml "llbuild.yaml"
 
     ;;Provide an array of compile options.  NOTHING IS IMPOSSIBLE
-    :compileOptions []
-    :linkOptions [] ;;link options too!
+    :compile-options []
+    :link-options [] ;;link options too!
 
-    :linkSDK true #Whether to link the platform SDK.  True is the default value.
+    :link-sdk true #Whether to link the platform SDK.  True is the default value.
 
     ;;A product from another atllbuild task to link with.
     ;;You should supply a filename here, like "yaml.a".
     ;;Note that this is for linking dependencies built by atllbuild; 
     ;;or other libraries, you should use UNSUPPORTED https://github.com/AnarchyTools/atbuild/issues/13
-    :linkWithProduct ["attools.a" "atpkg.a"]
+    ;;If the specified atllbuild product used `:module-map "synthesized"` then its
+    ;;modulemap will be loaded automatically
+    :link-with ["attools.a" "atpkg.a"]
 
     ;;The path to swiftC.  By default, we guess based on your platform
-    swiftCPath:"/usr/local/bin/swiftc"
+    :swiftc-path:"/usr/local/bin/swiftc"
+
+    ;; Add a path in the $ATBUILD_USER_PATH as an include path
+    :include-with-user [] 
 
     ;; Inject platform-specific options related to
     ;; XCTest targets
-    xctestify: false
+    :xctestify: false
 
     ;; Inject platform-specific behavior related to
     ;; checking for API differences across XCTest
     ;; platforms
-    xctestStrict: false
+    :xctest-strict: false
+
+    ;; Use an umbrella (bridging) header
+    ;; By default, this option is not set, and
+    ;; your project does not use a bridging header
+    ;; This feature is EXPERIMENTAL.
+    ;; must be used with :module-map "synthesized"
+    :umbrella-header: "MyHeader.h"
+
+    ;; Whether to create a module map for the module or not.
+    ;; "none" is the default value.  "synthesized" means
+    ;; we we will generate a module map for the target
+    :module-map: "none"
   }
 }
         

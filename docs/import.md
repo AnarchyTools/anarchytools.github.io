@@ -15,21 +15,31 @@ This is useful to depend on tasks specified in another package.
   ;; These will be imported as `packagename.taskname`.
   ;; Since you cannot declare packages with periods manually, this 
   ;; cannot conflict with any current tasks
-  :import ["atpkg/build.atpkg"]
+  :import-packages ["atpkg/build.atpkg"]
 
   ;; We can then depend on a target from the remote package in our current one
 
   :tasks {
-        :mytask {
-            :tool "atllbuild"
-            :source ["src/**.swift]
-            :name "mytask"
-            :outputType "executable"
-            :dependencies ["atpkg.atpkg"]
-        }
+    :mytask {
+      :tool "atllbuild"
+      :sources ["src/**.swift"]
+      :name "mytask"
+      :output-type "executable"
+      :dependencies ["atpkg.atpkg"]
+    }
   }
 )
 ```
+
+You can also reference remote tasks on the command line by providing their fully-qualified name:
+
+```bash
+$ atbuild atpkg.atpkg
+$ atbuild mytask
+$ atbuild atbuild.mytask #equivalent to previous line
+```
+
+Packages are imported in a flat topology; if `a` imports `b` and `b` imports `c`, use `c.taskname` to refer to the task, not `b.c.taskname` or `a.b.c.taskname`.
 
 # Implementation note
 

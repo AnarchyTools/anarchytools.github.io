@@ -13,10 +13,10 @@ taskname: {
     :tool "tool"
 
     ;;What other tasks should run before this one.
-    :dependency []
+    :dependencies []
 
     ;;see docs/overlays.md for more information about overlays
-    :overlay [] ;;what overlays to apply to this task
+    :use-overlay [] ;;what overlays to apply to this task
     :overlays { } ;;what overlays can be applied to this task
 }
 ```
