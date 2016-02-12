@@ -91,6 +91,10 @@ If you're packaging a project for atbuild and wish to conditionally compile your
 
 This is useful when packaging Xcode projects that resolve their imports through bridging headers, for example.
 
+## Incremental compiles
+
+By default, atllbuild tries an incremental compile.  If you would like a full compile, use `--clean` on the command line.
+
 ## Implementation
 
 The `atllbuild` tool emits an `llbuild.yaml` file.  This is undocumented, but we [reverse-engineered the format from SwiftPM](https://github.com/apple/swift-package-manager).  You can see an example in our [repository](/llbuild.yaml).  Essentially, this file contains the compile/link commands for building the swift module.
