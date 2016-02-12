@@ -69,7 +69,7 @@ layout: landing
             <ul class="links">
             {% for page in site.pages %}
                 {% if page.tags contains "docs" %}
-                  <li><a href="{{ page.url }}">{{page.name}}</a></li>
+                  <li><a href="{{ page.url }}">{{ page.name | replace: '.md', '' }}</a></li>
                 {% endif %}
             {% endfor %}
             </ul>
