@@ -63,15 +63,18 @@ layout: landing
             from the working directory.
         </p>
 
-        <p>More:
-        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/atllbuild.md">atllbuild tool</a> |
-        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/nop.md">nop tool</a> |
-        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/shell.md">shell tool</a> |
-        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/xctest.md">xctest tool</a> |
-        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/tasks.md">tasks</a> |
-        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/import.md">importing packages</a> |
-        <a href="https://github.com/AnarchyTools/AnarchyTools/blob/master/overlays.md">overlays</a>
-        </p>
+        <div>
+            <span>More:</span>
+
+            <ul class="links">
+            {% for page in site.pages %}
+                {% if page.tags contains "docs" %}
+                  <li><a href="{{ page.url }}">{{page.name}}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+
+        </div>
     </div>
     
 </section>

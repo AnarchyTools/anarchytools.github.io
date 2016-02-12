@@ -76,3 +76,20 @@ section:after {
 .footer p {
   text-align: center;
 }
+
+ul.links {
+  display: inline-block;
+}
+
+ul.links li {
+  list-style: none;
+  display: inline;
+}
+
+ul.links li:after {
+  content: " | ";
+}
+
+ul.links li:last-child:after {
+  content: "";
+}
