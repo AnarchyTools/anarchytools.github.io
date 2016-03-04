@@ -49,31 +49,33 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     :link-with ["attools.a" "atpkg.a"]
 
     ;;The path to swiftC.  By default, we guess based on your platform
-    :swiftc-path:"/usr/local/bin/swiftc"
+    :swiftc-path "/usr/local/bin/swiftc"
 
     ;; Add a path in the $ATBUILD_USER_PATH as an include path
     :include-with-user [] 
 
     ;; Inject platform-specific options related to
     ;; XCTest targets
-    :xctestify: false
+    :xctestify false
 
     ;; Inject platform-specific behavior related to
     ;; checking for API differences across XCTest
     ;; platforms
-    :xctest-strict: false
+    :xctest-strict false
 
     ;; Use an umbrella (bridging) header
     ;; By default, this option is not set, and
     ;; your project does not use a bridging header
     ;; This feature is EXPERIMENTAL.
     ;; must be used with :module-map "synthesized"
-    :umbrella-header: "MyHeader.h"
+    :umbrella-header "MyHeader.h"
 
     ;; Whether to create a module map for the module or not.
     ;; "none" is the default value.  "synthesized" means
     ;; we we will generate a module map for the target
-    :module-map: "none"
+    :module-map "none"
+    
+    :whole-module-optimization false
   }
 }
         
