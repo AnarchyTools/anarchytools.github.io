@@ -18,5 +18,7 @@ taskname: {
     ;;see docs/overlays.md for more information about overlays
     :use-overlay [] ;;what overlays to apply to this task
     :overlays { } ;;what overlays can be applied to this task
+
+    :required-overlays [] ;;what overlays are required for this task
 }
 ```
