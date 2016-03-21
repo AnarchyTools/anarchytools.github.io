@@ -22,13 +22,13 @@ External dependencies are defined in your `build.atpkg` file. The syntax is rath
 
 You just have to configure the git URL to use and some kind of version specifier.
 
-External packages are cloned into their own directory below the `externals` dir on the same level as the `build.atpkg`. If a dependency has sub-dependencies the `externals` directory of the sub-dependency is symlinked to the toplevel `externals` dir so the complete dependency tree is flattened into one level. This results in a structure like this (provided `build.atpkg` has dependency `dep1` and `dep1` has `dep2`):
+External packages are cloned into their own directory below the `external` dir on the same level as the `build.atpkg`. If a dependency has sub-dependencies the `external` directory of the sub-dependency is symlinked to the toplevel `external` dir so the complete dependency tree is flattened into one level. This results in a structure like this (provided `build.atpkg` has dependency `dep1` and `dep1` has `dep2`):
 
 ```
 pkg root
-  +- externals
+  +- external
      +- dep1
-        -> externals -> symlinked to ../../externals
+        -> external -> symlinked to ../../external
         +- src
            - dep1.swift
         - build.atpkg
@@ -91,4 +91,4 @@ If you're really desperate you may even specify a SHA commit id to check out, yo
 - `update`: Updates all git repos that have been fetched to the current version specification
 - `pin <packagename>`: Pin the named package to the currently checked out commit id and record that in the [lock file](atlock.md), `update` will not modify that package anymore
 - `unpin <packagename>`: Remove the pinned commit id from the lock file, `update` will now be able to modify that package again
-- `override <packagename> [overriden url]`: Override the git URL of a package. Future `fetch` actions will use the overridden URL instead of the original URL, skip the third parameter to restore fetching from the original URL. You'll have to delete the git repo in `externals` if you already fetched a copy
+- `override <packagename> [overriden url]`: Override the git URL of a package. Future `fetch` actions will use the overridden URL instead of the original URL, skip the third parameter to restore fetching from the original URL. You'll have to delete the git repo in `external` if you already fetched a copy
