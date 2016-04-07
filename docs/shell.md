@@ -15,6 +15,7 @@ The shell tool allows you to call a shell command.
 
     ;;run the following script in /bin/sh.
     ;;A non-zero return code indicates that build should halt.
+    ;;this field supports variable expansion.
     :script "echo hello world"
 }
 ```
