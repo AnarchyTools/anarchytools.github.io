@@ -18,7 +18,7 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     ;;Name of the module to build
     :name "build"
 
-    ;;Type of build.  "library" and "executable" are supported.
+    ;;Type of build.  "static-library", "dynamic-library" and "executable" are supported.
     :output-type "library" 
 
     ;;walk the src directory and recursively find all swift files
@@ -42,8 +42,10 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
 
     ;;A product from another atllbuild task to link with.
     ;;You should supply a filename here, like "yaml.a".
+    ;;Dynamic libraries have no platform-independent extension, so the 
+    ;;pseudoextension ".dynamic" may be used.
     ;;Note that this is for linking dependencies built by atllbuild; 
-    ;;or other libraries, you should use UNSUPPORTED https://github.com/AnarchyTools/atbuild/issues/13
+    ;;for other libraries, you should use UNSUPPORTED https://github.com/AnarchyTools/atbuild/issues/13
     ;;If the specified atllbuild product used `:module-map "synthesized"` then its
     ;;modulemap will be loaded automatically
     :link-with ["attools.a" "atpkg.a"]
