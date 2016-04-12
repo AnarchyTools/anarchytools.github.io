@@ -108,3 +108,15 @@ You can specify that an overlay must be applied to a task.
     }
 )
 ```
+
+# Built-in overlays
+
+The following overlays are enabled automatically by atbuild.
+
+| overlay                | enabled?           |
+|------------------------|--------------------|
+| atbuild.platform.osx   | Building for OSX   |
+| atbuild.platform.mac   | Building for OSX   |
+| atbuild.platform.linux | Building for Linux |
+
+
