@@ -50,9 +50,6 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     ;;modulemap will be loaded automatically
     :link-with ["attools.a" "atpkg.a"]
 
-    ;;The path to swiftC.  By default, we guess based on your platform
-    :swiftc-path "/usr/local/bin/swiftc"
-
     ;; Add a path in the $ATBUILD_USER_PATH as an include path
     :include-with-user [] 
 
