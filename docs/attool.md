@@ -3,7 +3,7 @@ layout: documentation
 tags: docs
 ---
 
-# Plugins
+# Custom tools
 
 The Anarchy Tools mission is to build "simple, separate" tools.  While we want atbuild to be a great build system out of the box, we also want to prevent it from becoming monolithic, and therefore, unhackable.  Many features that are very useful do not make sense for inclusion in atbuild core:
 
@@ -13,11 +13,17 @@ The Anarchy Tools mission is to build "simple, separate" tools.  While we want a
 
 Examples of features like this include: [xcode-emit](https://github.com/AnarchyTools/xcode-emit).
 
-To better support this usecase, we've developed an extremely simple plugin model.
+To better support this usecase, we've developed an extremely simple interface to support out-of-process custom tools for Anarchy Tools.
 
-# Programs
+# Comparison with shell
 
-Plugins are just programs, that are written to be used from `atbuild`.
+Our [shell tool](shell.html) can be used to run any program, not just ones that understand `--key value` syntax.  Shell is good for when you have an existing program that just needs to run as a phase in your build process.  Cases like this include `tar`, `find`, and small shell scripts.
+
+Custom tools allow you to write new software specifically for use from AT.  By designing to our interface your tool will feel at home in any atpkg file, at the cost of some flexibility for standalone use.  Cases like this include preprocessors, test runners, atllbuild alternatives, or complex packaging.
+
+# Design
+
+Custom tools are just programs, that are written to be used from `atbuild`.
 You can use them just like any builtin tool:
 
 ```clojure
@@ -26,7 +32,7 @@ You can use them just like any builtin tool:
   
   :tasks {
     :default {
-      :tool "echo.plugin"
+      :tool "echo.attool"
       :key "value"
   }
 }
@@ -34,19 +40,14 @@ You can use them just like any builtin tool:
 )
 ```
 
-To use a plugin:
+To use a custom tool:
 
 1.  Place a binary in your path
-2.  Set your tool name to be `mybinaryname.plugin`
+2.  Set your tool name to be `mybinaryname.attool`
 3.  Set keys and values as needed
 
-The program will be started with `--key1 value1 --key2 value2`.  Note that build.atpkg is unordered, so the order of keys provided to the plugin is undefined.
+The program will be started with `--key1 value1 --key2 value2`.  Note that build.atpkg is unordered, so the order of keys provided to the custom tool is undefined.
 
-# Comparison with shell
-
-Our [shell tool](shell.html) can be used to run any program, not just ones that understand `--key value` syntax.
-
-With plugins, you can write a program (or a wrapper for an existing program) that is specifically designed for Anarchy Tools.
 
 # Variable expansion
 
