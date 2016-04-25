@@ -118,5 +118,5 @@ The following overlays are enabled automatically by atbuild.
 | atbuild.platform.osx   | Building for OSX   |
 | atbuild.platform.mac   | Building for OSX   |
 | atbuild.platform.linux | Building for Linux |
-
+| atbuild.platform.ios   | Building for iOS   |
 
