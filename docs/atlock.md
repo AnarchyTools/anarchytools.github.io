@@ -50,4 +50,4 @@ This will force the package manager to look at `<new url>` instead of the origin
 You may use the `atpm` commandline to add and remove that line for you:
 
 - `atpm override <packagename> <new url>` will add an override
-- `atpm override <packagename>` will remove an override
+- `atpm restore <packagename>` will remove an override

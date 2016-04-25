@@ -28,7 +28,7 @@ External packages are cloned into their own directory below the `external` dir o
 pkg root
   +- external
      +- dep1
-        -> external -> symlinked to ../../external
+        -> external -> symlinked to ../external
         +- src
            - dep1.swift
         - build.atpkg
@@ -91,4 +91,5 @@ If you're really desperate you may even specify a SHA commit id to check out, yo
 - `update`: Updates all git repos that have been fetched to the current version specification
 - `pin <packagename>`: Pin the named package to the currently checked out commit id and record that in the [lock file](atlock.md), `update` will not modify that package anymore
 - `unpin <packagename>`: Remove the pinned commit id from the lock file, `update` will now be able to modify that package again
-- `override <packagename> [overriden url]`: Override the git URL of a package. Future `fetch` actions will use the overridden URL instead of the original URL, skip the third parameter to restore fetching from the original URL. You'll have to delete the git repo in `external` if you already fetched a copy
+- `override <packagename> <overriden url>`: Override the git URL of a package. Future `fetch` actions will use the overridden URL instead of the original URL.
+- `restore <packagename>`: restore fetching from the original URL. You'll have to delete the git repo in `external` if you already fetched a copy
