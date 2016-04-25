@@ -55,7 +55,7 @@ The program will be started with `--key1 value1 --key2 value2`.  Note that build
 
 # Environment
 
-We set `ATBUILD_USER_PATH` environment variable to be a path to the user path.  See the [shell tool](shell.html) for more information.
+Custom tools support the same environment variables as the [shell tool](shell.html)
 
 # Tips
 

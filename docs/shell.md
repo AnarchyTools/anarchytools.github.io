@@ -29,3 +29,8 @@ The `ATBUILD_USER_PATH` contains the path to a "user" directory.  You can use th
 The directory is preserved across all tasks that are part of the same dependency chain, and is cleared between invocations to `atbuild`.
  
 A common use of the `ATBUILD_USER_PATH` is to specify include information; see atllbuild's `includeWithUser` [documentation](/docs/atllbuild.md) for more information.
+
+## `ATBUILD_PLATFORM`
+
+The platform currently being targeted.  Valid values are the same as those passed to `--platform` from [atbuild](atbuild.html)
+
