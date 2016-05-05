@@ -30,7 +30,7 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     :publish-product false
 
     ;;If true, we don't build, we only output llbuild.yaml  False is the default value.
-    :bootstrap-only: false
+    :bootstrap-only false
     ;;Path to emit llbuild.yaml
     :llbuildyaml "llbuild.yaml"
 
@@ -102,7 +102,7 @@ By default, atllbuild tries an incremental compile.  If you would like a full co
 
 ## Implementation
 
-The `atllbuild` tool emits an `llbuild.yaml` file.  This is undocumented, but we [reverse-engineered the format from SwiftPM](https://github.com/apple/swift-package-manager).  You can see an example in our [repository](/llbuild.yaml).  Essentially, this file contains the compile/link commands for building the swift module.
+The `atllbuild` tool emits an `llbuild.yaml` file, which is [now officially documented here](https://github.com/apple/swift-llbuild/blob/master/docs/buildsystem.rst).  Essentially, this file contains the compile/link commands for building the swift module.
 
 Finally, we call `swift-build-tool -f /path/to/llbuild.yaml`.
 
@@ -110,4 +110,4 @@ Finally, we call `swift-build-tool -f /path/to/llbuild.yaml`.
 
 In addition to building, we can choose to (only) emit the llbuild.yaml file, and save it for compiling later.
 
-This is how we bootstrap atbuild, by creating an llbuild.yaml on a working machine and then using swift-build-tool on a new machine.  For this reason, the `llbuild.yaml` file in this repository must be kept up to date.
+This is how we bootstrap atbuild, by creating an llbuild.yaml on a working machine and then using swift-build-tool on a new machine.  For this reason, the `llbuild.yaml` file for `atbuild` (and `atbuild`'s own dependencies, like `atfoundation` or `atpkg`) must be kept up in a bootstrappable state.
