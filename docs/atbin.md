@@ -1,3 +1,8 @@
+---
+layout: documentation
+tags: docs
+---
+
 # atbin
 
 atbin is a universal binary packaging format used by the AT toolchain.
