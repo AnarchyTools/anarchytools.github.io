@@ -37,5 +37,5 @@ This `.atbin` will contain:
 
 You can build `.atbin`s by hand; just move the files into the right places and create your `compiled.atpkg`.
 
-You can also build `atbin` from `[packageatbin](packageatbin.html)`
+You can also build `atbin` from [`packageatbin`](packageatbin.html)
 
