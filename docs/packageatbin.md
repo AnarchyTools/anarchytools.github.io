@@ -21,6 +21,9 @@ tags: docs
    ;; The atllbuild task to package.
    ;; Special logic will re-run this task for each platform and merge the resulting output.
    :atllbuild-task "myatllbuildtask"
+   
+   ;; If true, we will create a bin/mypayload.atbin.tar.xz
+   :compress false
 }
 ```
 
