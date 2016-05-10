@@ -20,5 +20,8 @@ taskname: {
     :overlays { } ;;what overlays can be applied to this task
 
     :required-overlays [] ;;what overlays are required for this task
+    
+    ;;List platforms here to only run the task when targeting the specified platform
+    :only-platforms []
 }
 ```
