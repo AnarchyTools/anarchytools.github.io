@@ -1,3 +1,8 @@
+---
+layout: documentation
+tags: docs
+---
+
 # `packageatbin`
 
 `packageatbin` is a builtin `atbuild` tool that packages binaries for the [`atbin`](atbin.html) format.
