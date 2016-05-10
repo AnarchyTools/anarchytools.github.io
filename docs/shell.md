@@ -34,3 +34,7 @@ A common use of the `ATBUILD_USER_PATH` is to specify include information; see a
 
 The platform currently being targeted.  Valid values are the same as those passed to `--platform` from [atbuild](atbuild.html)
 
+## `ATBUILD_PACKAGE_VERSION`
+
+The version of the package for the current task.  If the package has no version, this environment variable will not be present.
+
