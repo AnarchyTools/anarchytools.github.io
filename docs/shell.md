@@ -38,3 +38,7 @@ The platform currently being targeted.  Valid values are the same as those passe
 
 The version of the package for the current task.  If the package has no version, this environment variable will not be present.
 
+## `ATBUILD_BIN_PATH`
+
+The absolute path to the `bin` folder for the current execution.  Note that this will be different than `workingDirectory+"/bin"` in the case that the task is imported.
+
