@@ -47,7 +47,7 @@ tags: docs
       ;; https://www.debian.org/doc/debian-policy/ch-relationships.html
       :recommends "xz-utils"
 
-      ;; supply the debian "suggests" field
+      ;; supply the Debian "suggests" field
       ;; https://www.debian.org/doc/debian-policy/ch-relationships.html
       :suggests "package-deb"
     }
