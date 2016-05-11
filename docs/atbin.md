@@ -35,6 +35,8 @@ This `.atbin` will contain:
 * (optional) `ios-x86_64.swiftdoc` and `ios-i386.swiftdoc`, if the module is a library and documentation is available
 * (optional) `module.modulemap`, if the module is a clang module, or overlays one.
 
+# Building
+
 You can build `.atbin`s by hand; just move the files into the right places and create your `compiled.atpkg`.
 
 You can also build `atbin` from [`packageatbin`](packageatbin.html)
