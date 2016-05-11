@@ -24,8 +24,8 @@ layout: landing
         <p id="pitch">The Anarchy Tools toolset provides a straight forward way to build your Swift tools
             and libraries and manage their dependencies. It takes a non-nonsense approach to getting things
             done. Best of all, it's built right on top of the
-            <a href="https://github.com/apple/swift-llbuild">swift-llbuild</a> foundation.</p> and plain
-            simple git.
+            <a href="https://github.com/apple/swift-llbuild">swift-llbuild</a> foundation and plain
+            simple git.</p>
     </div>
     <div class="seven columns">
         <pre>
@@ -42,14 +42,26 @@ layout: landing
 <hr>
 
 <section class="info">
-    <div class="three columns offset-by-one"><h3>Install</h3></div>
+    <div class="three columns offset-by-one"><h3>Install (OSX)</h3></div>
     <div class="eight columns">
         <a name="install"></a>
         <ol>
-            <li>Download the latest release of <a href="https://github.com/AnarchyTools/atbuild/releases">atbuild</a>
-            and <a href="https://github.com/AnarchyTools/atpm/releases">atpm</a>.</li>
-            <li>Place it on your <tt>$PATH</tt> where your shell can find it (eg. <tt>~/bin</tt>)</li>
-            <li>You should now be able to run <kbd>atbuild</kdb> or <kbd>atpm</kdb>.</li>
+            <li>Install <a href="http://brew.sh">homebrew</a></li>
+            <li>Add our tap: <br /><code>brew tap AnarchyTools/homebrew</code></li>
+            <li>Install our tools: <br /><code>brew install atbuild atpm</code></li>
+
+    </div>
+</section>
+
+<hr>
+
+<section class="info">
+    <div class="three columns offset-by-one"><h3>Install (Debian)</h3></div>
+    <div class="eight columns">
+        <a name="install"></a>
+        <ol>
+            <li>Install our repository:<br /><code>curl -s https://packagecloud.io/install/repositories/anarchytools/AT/script.deb.sh | bash</code></li>
+            <li>Install our tools: <br /><code>apt-get install atbuild atpm</code></li>
 
     </div>
 </section>
@@ -61,13 +73,11 @@ layout: landing
 
     <div class="eight columns">
         <a name="docs"></a>
-        <p>The documentation is a little sparse right now, but do not fear, it is coming! You can
-            always run <kbd>atbuild --help</kbd> to see the list of current tasks that can be run
-            from the working directory.
+        <p>Our documentation is like us.  Disorganized, but awesome.
         </p>
 
         <div>
-            <span>More:</span>
+            <span>Read about:</span>
 
             <ul class="links">
             {% for page in site.pages %}
