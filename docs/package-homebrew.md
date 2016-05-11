@@ -48,3 +48,5 @@ tags: docs
     }
 }
 ```
+
+package-homebrew outputs a `.tar.xz` in `bin`.  It also outputs an `.rb` formula for the package.
