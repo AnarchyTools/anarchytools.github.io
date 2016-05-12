@@ -79,6 +79,10 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     ;;Whether to build a library suitable for use as a framework.
     ;;Only supported on OSX hosts and OSX/iOS targets
     :framework false
+
+    ;; Whether to emit bitcode.
+    ;; This is currently only supported on the xcode toolchain, see SR-1493 for details
+    :bitcode false
   }
 }
         
