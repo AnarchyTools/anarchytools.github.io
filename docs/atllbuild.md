@@ -77,7 +77,7 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     :whole-module-optimization false
 
     ;;Whether to build a library suitable for use as a framework.
-    ;;Only supported on OSX.
+    ;;Only supported on OSX hosts and OSX/iOS targets
     :framework false
   }
 }
