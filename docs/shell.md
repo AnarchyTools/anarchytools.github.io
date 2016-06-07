@@ -42,3 +42,7 @@ The version of the package for the current task.  If the package has no version,
 
 The absolute path to the `bin` folder for the current execution.  Note that this will be different than `workingDirectory+"/bin"` in the case that the task is imported.
 
+## Configurations
+
+The internal configuration API is also exposed via environment variable.  See [configurations](configurations.html) for more details.
+
