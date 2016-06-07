@@ -24,18 +24,17 @@ The minimal structure of the lock file is defined like the following:
 
 The lock file is always named `build.atlock` and is kept in the same dir as the `build.atpkg`.
 
-## Pinning commits
+## Pinning dependencies
 
 To pin a dependency to an exact commit id add the following line to the corresponding package definition:
 
 ```clojure
-:pin-commit "<commit id>"
+:pin true
 ```
 
-This will disable version resolution of the package manager and instead check out this exact commit id on the next update.
+This will disable version resolution of the package manager and instead check out the `used-commit` commit id on the next update.
 
 You may use `atpm pin <packagename>` to let the package manager add this line for you (it uses the currently checked out commit), or remove that line to unpin the version by issuing a `atpm unpin <packagename>` command
-
 
 ## Overriding git repository URLs
 

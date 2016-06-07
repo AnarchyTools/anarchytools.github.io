@@ -20,9 +20,11 @@ External dependencies are defined in your `build.atpkg` file. The syntax is rath
 ]
 ```
 
-You just have to configure the git URL to use and some kind of version specifier.
+You just have to configure the package URL to use and some kind of version specifier.
 
-External packages are cloned into their own directory below the `external` dir on the same level as the `build.atpkg`. If a dependency has sub-dependencies the `external` directory of the sub-dependency is symlinked to the toplevel `external` dir so the complete dependency tree is flattened into one level. This results in a structure like this (provided `build.atpkg` has dependency `dep1` and `dep1` has `dep2`):
+## Result
+
+External packages are placed into their own directory below the `external` dir on the same level as the `build.atpkg`. If a dependency has sub-dependencies the `external` directory of the sub-dependency is symlinked to the toplevel `external` dir so the complete dependency tree is flattened into one level. This results in a structure like this (provided `build.atpkg` has dependency `dep1` and `dep1` has `dep2`):
 
 ```
 pkg root
@@ -47,11 +49,50 @@ The *package name* is the last part of the git repo url (without the `.git` suff
 You have multiple methods specifying a version:
 
 - `:version` the prefered method of defining a version. Use this to allow the package manager to resolve conflicts for you.
-- `:branch` defines a branch to check out
-- `:tag` defines a git tag to check out
-- `:commit` defines a commit id to check out.
+- `:branch` defines a branch to check out (git packages only)
+- `:tag` defines a git tag to check out (git packages only)
+- `:commit` defines a commit id to check out (git packages only).
 
 If all packages are fetched they behave like [imported packages](import.md) and can be referenced like them.
+
+## Binary packages
+
+Binary packages are also supported.  To use binaries, point the dependency URL to a **manifest**, like so:
+
+```clojure
+:external-packages [
+  {
+    :url "https://raw.githubusercontent.com/AnarchyTools/dummyBinaryPackage/master/manifest.atpkg"
+    :version [ ">=0.1" "<=2.0" ]
+    :channels ["osx"]
+  }
+]
+```
+
+`channels` here lists the binary feeds to which you want to subscribe.  Each dependency may offer various channels such as `stable`, `beta`, `osx`, `linux`, etc.  Consult your dependency documentation for details on what channels are available for the package.
+
+Ensure the manifest specifies binary feeds:
+
+```clojure
+(package
+:name "Example"
+
+:binaries {
+    :channels {
+        :osx {
+            :0.2 {
+                :url "https://github.com/AnarchyTools/dummyBinaryPackage/releases/download/0.2/osx.tar.xz"
+            }
+            :0.1 {
+                :url "https://github.com/AnarchyTools/dummyBinaryPackage/releases/download/0.1/osx.tar.xz"
+            }
+        }
+    }
+}
+)
+```
+
+`atpm` will now download and unpack these tarballs to the `external` directory as appropriate as part of its normal `fetch` and `update` operations.
 
 ###  The `version` specification
 
