@@ -48,7 +48,11 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     ;;for other libraries, you should use UNSUPPORTED https://github.com/AnarchyTools/atbuild/issues/13
     ;;If the specified atllbuild product used `:module-map "synthesized"` then its
     ;;modulemap will be loaded automatically
-    :link-with ["attools.a" "atpkg.a"]
+    :link-with-product ["attools.a" "atpkg.a"]
+
+    ;; A path to an atbin to link with.
+    ;; You should supply an atbin path here.
+    :link-with-atbin ["foo.atbin"]
 
     ;; Add a path in the $ATBUILD_USER_PATH as an include path
     :include-with-user [] 
