@@ -1,3 +1,8 @@
+---
+layout: documentation
+tags: docs
+---
+
 # Configurations
 
 `atbuild` supports a variety of built-in configurations:

@@ -1,3 +1,8 @@
+---
+layout: documentation
+tags: docs
+---
+
 # Platforms
 
 Platforms in `atbuild` are more explicit than in other tools you may have used.
