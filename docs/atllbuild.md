@@ -88,9 +88,6 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     ;; This is currently only supported on the xcode toolchain, see SR-1493 for details
     :bitcode false
     
-    ;; Platform-specific compile/link options you almost certainly want.
-    ;; Set this to false to disable these and then you can replace with your own flags in the atpkg
-    :magic true
   }
 }
         
