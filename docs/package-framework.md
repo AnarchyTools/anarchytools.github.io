@@ -44,6 +44,9 @@ tags: docs
                 :info-plist "Info.plist"
 
                 :dependencies ["packageatbin"]
+                
+                ;; Create a compressed tarball for the framework
+                :compress true
             }
     }
 )
