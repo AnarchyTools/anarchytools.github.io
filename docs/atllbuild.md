@@ -22,6 +22,9 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     :output-type "library" 
 
     ;;walk the src directory and recursively find all swift files
+    ;;c and h files are also supported
+    ;;c files will be linked into the current library
+    ;;h files will be imported into Swift
     :sources ["src/**.swift"]
 
     ;;if true, we publish the product to the bin/ directory.
@@ -34,9 +37,12 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     ;;Path to emit llbuild.yaml
     :llbuildyaml "llbuild.yaml"
 
-    ;;Provide an array of compile options.  NOTHING IS IMPOSSIBLE
+    ;;Provide an array of Swift compile options.  NOTHING IS IMPOSSIBLE
     :compile-options []
     :link-options [] ;;link options too!
+
+    ;; if .c files are being compiled, these options will be used for them
+    :c-compile-options []
 
     :link-sdk true #Whether to link the platform SDK.  True is the default value.
 
@@ -76,7 +82,15 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     ;; Whether to create a module map for the module or not.
     ;; "none" is the default value.  "synthesized" means
     ;; we we will generate a module map for the target
+    ;; When using "synthesized", make sure the module map is distributed
+    ;; such as via packageatbin
     :module-map "none"
+
+    ;; You can list a library like "curl" here to link with it
+    ;; Links listed here are automatically linked by consumers as well
+    ;; unlike `link-options`.
+    ;; Requires :module-map "synthesized"
+    :module-map-link []
     
     :whole-module-optimization false
 
