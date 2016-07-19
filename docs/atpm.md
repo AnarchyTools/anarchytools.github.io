@@ -122,6 +122,24 @@ If a package uses another versioning scheme than recognized by the `:version` pa
 
 If you're really desperate you may even specify a SHA commit id to check out, you should probably not use this, better use another method (as seen above) and [pin a defined commit](atlock.md) in the lock file.
 
+### The `if-including` specification
+
+If a dependency is not required for ordinary build/use of the library (but may be required for testing or certain targets) you can specify an `if-including` directive which will only download the package if the directive is provided on the command line.
+
+ ```clojure
+:name "packageName"
+:external-packages [
+  {
+    :url "https://github.com/AnarchyTools/dummyPackageB.git"
+    :version [ ">=1.0" "<=2.0" ]
+    :if-including ["my-special-string"]
+  }
+]
+```
+
+Now the package will only be fetched if `--include packageName.my-special-string` is passed on the command line.  Including any of the specified strings will cause the package to be fetched.
+
+When passed on the CLI, include strings are namespaced to the package (e.g. `PackageName.string`).  This is so multiple packages can use a string like `test` to specify test dependencies.
 
 ## Command line interface
 
