@@ -44,7 +44,7 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     ;; if .c files are being compiled, these options will be used for them
     :c-compile-options []
 
-    :link-sdk true #Whether to link the platform SDK.  True is the default value.
+    :link-sdk true ;;Whether to link the platform SDK.  True is the default value.
 
     ;;A product from another atllbuild task to link with.
     ;;You should supply a filename here, like "yaml.a".
@@ -101,6 +101,10 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     ;; Whether to emit bitcode.
     ;; This is currently only supported on the xcode toolchain, see SR-1493 for details
     :bitcode false
+    
+    ;; Deployment target.  By default, we try to match your Xcode version.
+    ;; Currently this only has any effect for iOS builds.
+    :deployment-target "9.0"
     
   }
 }
