@@ -111,7 +111,7 @@ You can specify that an overlay must be applied to a task.
 
 # Built-in overlays
 
-The following overlays are enabled automatically by atbuild.
+The following overlays are enabled automatically by AT tools.
 
 | overlay                | enabled?           |
 |------------------------|--------------------|
@@ -119,4 +119,5 @@ The following overlays are enabled automatically by atbuild.
 | atbuild.platform.mac   | Building for OSX   |
 | atbuild.platform.linux | Building for Linux |
 | atbuild.platform.ios   | Building for iOS   |
+| at.xcode-emit          | The xcode-emit tool is emitting a project   |
 
