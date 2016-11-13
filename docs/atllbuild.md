@@ -103,7 +103,7 @@ The `atllbuild` tool uses the [`swift-llbuild`](https://github.com/apple/swift-l
     :bitcode false
     
     ;; Deployment target.  By default, we try to match your Xcode version.
-    ;; Currently this only has any effect for iOS builds.
+    ;; Currently this only has any effect for iOS and macOS builds.
     :deployment-target "9.0"
     
   }
